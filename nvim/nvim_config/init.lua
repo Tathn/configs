@@ -1,7 +1,6 @@
 require("config/plugins")
 
-vim.keymap.set("n", ";", "<cmd>Files<cr>")
-vim.keymap.set("n", "\"", "<cmd>GFiles<cr>")
+vim.g.mapleader = " "
 
 vim.o.compatible = false
 vim.o.number = true

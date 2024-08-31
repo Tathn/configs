@@ -1,29 +1,36 @@
-local Plug = vim.fn['plug#']
+return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
 
---   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
--- You can specify a custom plugin directory by passing it as the argument
---   - e.g. `call plug#begin('~/.vim/plugged')`
---   - Avoid using standard Vim directory names like 'plugin'
-vim.call("plug#begin")
+    -- File fuzzy finder/grep
+    use {
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.8',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-Plug('Shadorain/shadotheme')
-Plug('junegunn/fzf.vim')
+    use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+    }
 
--- Python
-Plug('numirias/semshi', { ['do'] = ':UpdateRemotePlugins' })
+    -- Generic syntax highlighter, might want to override with some specific ones later
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+ 
+    -- LSP/Autocompletion
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+    -- /LSP/Autocompletion
+    
+    -- Python
+    --  use 'numirias/semshi', { ['do'] = ':UpdateRemotePlugins' }
+    
+    -- Colorschemes
+    use 'Shadorain/shadotheme'
 
--- Autocompletion
-Plug('neovim/nvim-lspconfig')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('hrsh7th/cmp-buffer')
-Plug('hrsh7th/cmp-path')
-Plug('hrsh7th/cmp-cmdline')
-Plug('hrsh7th/nvim-cmp')
-
--- For vsnip users.
-Plug('hrsh7th/cmp-vsnip')
-Plug('hrsh7th/vim-vsnip')
--- /Autocompletion
-
-vim.call("plug#end")
-
+end)
