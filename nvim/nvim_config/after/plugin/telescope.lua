@@ -5,4 +5,20 @@ vim.keymap.set('n', '<leader>pg', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
-require('telescope').load_extension('fzf')
+local telescope = require('telescope')
+telescope.setup({
+    defaults = {
+        border = {
+            prompt = { 1, 1, 1, 1 },
+            results = { 1, 1, 1, 1 },
+            preview = { 1, 1, 1, 1 },
+        },
+        borderchars = {
+            prompt = {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
+            results = {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
+            preview = {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        }
+    }
+})
+
+telescope.load_extension('fzf')

@@ -17,3 +17,7 @@ RUN echo ". ~/.bashrc_custom" > $USER_HOME/.bashrc
 RUN chown -R user $USER_HOME
 USER user
 RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+#Pretty slow, probably can just install languages on the go, cannot async as run command finishes without installing anything
+#Related issue https://github.com/nvim-treesitter/nvim-treesitter/issues/2900
+#RUN nvim --headless -c 'TSUpdate' -c 'TSInstallSync all' -c 'quitall'

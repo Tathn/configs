@@ -14,8 +14,14 @@ return require('packer').startup(function(use)
     }
 
     -- Generic syntax highlighter, might want to override with some specific ones later
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
- 
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
+
     -- LSP/Autocompletion
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
