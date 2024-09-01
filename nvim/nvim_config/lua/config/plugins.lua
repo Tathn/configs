@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     -- /LSP/Autocompletion
     
     -- Python
-    --  use 'numirias/semshi', { ['do'] = ':UpdateRemotePlugins' }
+    use { 'numirias/semshi', run = ':UpdateRemotePlugins' }
     
     -- Colorschemes
     use 'Shadorain/shadotheme'

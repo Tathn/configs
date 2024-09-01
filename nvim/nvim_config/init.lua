@@ -1,6 +1,10 @@
+vim.opt.termguicolors = true
+
 require("config/plugins")
 
 vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>op", ":e #<cr>")
 
 vim.o.compatible = false
 vim.o.number = true
