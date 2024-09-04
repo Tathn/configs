@@ -2,7 +2,7 @@ alias vim=nvim
 
 function user_pyenv
 {
-	python3 -m venv .venv
+    [ ! -f .venv/bin/activate ] && echo "Creating new pyenv in $(pwd)" && python3 -m venv .venv
 	source .venv/bin/activate
 	pip3 install pynvim
 }
