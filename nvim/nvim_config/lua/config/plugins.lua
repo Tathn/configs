@@ -38,5 +38,20 @@ return require('packer').startup(function(use)
     
     -- Colorschemes
     use 'Shadorain/shadotheme'
+    use 'EdenEast/nightfox.nvim'
+    use 'navarasu/onedark.nvim'
+    use 'doom-themes.nvim'
+    use 'sainnhe/everforest'
+    use 'sainnhe/edge'
+    use 'marko-cerovac/material.nvim'
+    use 'rose-pine/neovim'
+    use 'rebelot/kanagawa.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+    -- Other
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
 end)
