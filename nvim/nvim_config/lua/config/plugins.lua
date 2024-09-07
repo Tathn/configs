@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
       run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
     }
 
+    use {'nvim-telescope/telescope-ui-select.nvim' }
+
     -- Generic syntax highlighter, might want to override with some specific ones later
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -53,5 +55,7 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    use 'lewis6991/gitsigns.nvim'
 
 end)
