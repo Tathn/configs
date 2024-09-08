@@ -56,5 +56,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require("config/plugins")
-vim.cmd.colorscheme("shado")
+vim.cmd.colorscheme("edge")
 require("config/lsp")
